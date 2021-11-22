@@ -1,4 +1,4 @@
-<table id="example" class="table table-borderless" style="width:100%">
+<table id="ingredients" class="table table-borderless" style="width:100%">
   <thead>
     <tr>
       <th>INGREDIENTS</th>
@@ -6,31 +6,25 @@
     </tr>
   </thead>
   <tbody>
+    <% Ingredient.all.each do |ing| %>
     <tr>
-      <td>Humectant one</td>
-      <td>humectants</td>
+      <td><%= ing.name %></td>
+      <td><%= ing.ing_type %></td>
     </tr>
-    <tr>
-      <td>Protein one</td>
-      <td>proteins</td>
-    </tr>
-    <tr>
-      <td>Emollient one</td>
-      <td>emollients</td>
-    </tr>
+    <% end %>
   </tbody>
 </table>
 
 <script>
 $(document).ready(function() {
     var groupColumn = 1;
-    var table = $('#example').DataTable({
+    var table = $('#ingredients').DataTable({
         "columnDefs": [
             { "visible": false, "targets": groupColumn }
         ],
         "info": false,
         "lengthChange": false,
-        "order": [[ groupColumn, 'asc' ]],
+        "ordering": false,
         "displayLength": 25,
         "drawCallback": function ( settings ) {
             var api = this.api();

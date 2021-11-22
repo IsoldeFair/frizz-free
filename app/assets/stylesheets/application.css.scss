@@ -14,7 +14,23 @@
  *= require_self
  */
 
+@font-face {
+    font-family: 'Quicksand';
+    src: url('Quicksand.otf');
+}
+
 tr.group,
 tr.group:hover {
-    background-color: #ddd !important;
+    background-color: #ffb3d1 !important;
+}
+
+body {
+    background-color: #eafaf1 !important;
+    font-family: Quicksand !important;
+    font-weight: bold !important;
+}
+
+.navbar {
+    background-color: #adebc9 !important;
+    font-size: larger !important;
 }

@@ -25,7 +25,7 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to @ingredient, notice: "Ingredient was successfully created." }
+        format.html { redirect_to ingredients_url, notice: "Ingredient was successfully created." }
         format.json { render :show, status: :created, location: @ingredient }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +64,6 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.fetch(:ingredient, {})
+      params.require(:ingredient).permit(:name, :ing_type)
     end
 end
