@@ -8,3 +8,18 @@
     background-color: #f17ec4 !important;
     border-color: #e95eb2 !important;
 }
+
+.dataTables_filter {
+    float: left !important;
+    width: 500px;
+}
+
+
+div.dataTables_wrapper div.dataTables_filter input {
+    width: 500px !important;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    text-align: center !important;
+    font-size: larger !important;
+}

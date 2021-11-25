@@ -19,6 +19,7 @@
 $(document).ready(function() {
     var groupColumn = 1;
     var table = $('#ingredients').DataTable({
+        dom:"<'myfilter'f>",
         "columnDefs": [
             { "visible": false, "targets": groupColumn }
         ],
