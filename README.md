@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project evolved from my life lasting love to curly hair and curly hair care.
+It is only supposed to show the basic idea of what I am able to code in Rails.
 
-Things you may want to cover:
+Future improvements of my service:
 
-* Ruby version
+* Quiz on hair porosity 
 
-* System dependencies
+* Database improvements, including adding new categories and existing ingredients' smaller divisions
 
-* Configuration
+* A user-friendlier view, like colors and images
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
