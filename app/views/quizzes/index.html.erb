@@ -4,22 +4,81 @@
 <h2>Find out which type of porosity your hair is!</h2>
 </br></br>
 
-<%= form_with url: 'count_result', scope: :post, local: false , class: 'form-check' do |form| %>
+<%= form_with url: 'count_result', scope: :post, remote: true, class: 'form-check' do |form| %>
   <div class='container'>
     <h4 class='font-weight-bolder'>1. Does you hair tend to get curly?</h4>
     <div class='container'>
-      <%= form.radio_button :high, 1 %>
-      <%= form.label :high1, "Yes, it's curly", class: 'form-check-label' %>
+      <%= form.radio_button :one, 'high' %>
+      <%= form.label :one_high, "Yes, it's curly", class: 'form-check-label' %>
       </br>
-      <%= form.radio_button :medium, 1 %>
-      <%= form.label :medium1, "So, so, it's wavy or curly only at the ends", class: 'form-check-label' %>
+      <%= form.radio_button :one, 'medium' %>
+      <%= form.label :one_medium, "So, so, it's wavy or curly only at the ends", class: 'form-check-label' %>
       </br>
-      <%= form.radio_button :low, 1 %>
-      <%= form.label :low1, "No, my hair is straight", class: 'form-check-label' %>
+      <%= form.radio_button :one, 'low' %>
+      <%= form.label :one_low, "No, my hair is straight", class: 'form-check-label' %>
     </div>
   </div>
-  <%= form.submit 'Find out' %>
+  </br>
+  <div class='container'>
+    <h4 class='font-weight-bolder'>2. Is your hair frizzy sometimes?</h4>
+    <div class='container'>
+      <%= form.radio_button :two, 'medium' %>
+      <%= form.label :two_medium, "Sometimes yes, especially when air humidity is high", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :two, 'high' %>
+      <%= form.label :two_high, "Yes, it's always frizzy", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :two, 'low' %>
+      <%= form.label :two_low, "No, my hair is never frizzy", class: 'form-check-label' %>
+    </div>
+  </div>
+  </br>
+  <div class='container'>
+    <h4 class='font-weight-bolder'>3. How long does it take for your hair to air dry?</h4>
+    <div class='container'>
+      <%= form.radio_button :three, 'high' %>
+      <%= form.label :three_high, "It's dry almost immediately after washing", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :three, 'medium' %>
+      <%= form.label :three_medium, "Not long, around 1,5 - 3 hours", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :three, 'low' %>
+      <%= form.label :three_low, "It takes ages", class: 'form-check-label' %>
+    </div>
+  </div>
+  </br>
+  <div class='container'>
+    <%= form.submit 'Find out', class: 'btn btn-outline-danger', id: 'submit' %>
+  </div>
 <% end %>
-    { id: 1, question: '', high: "Yes, it's curly", medium: "So, so, it's wavy or curly only at the ends", low: "No, my hair is straight" },
-    { id: 2, question: 'Is you hair frizzy sometimes?', high: "Yes, it's always frizzy", medium: "Sometimes yes, especially when air humidity is high", low: "No, my hair is never frizzy" },
-    { id: 3, question: 'How long does it tak for your hair to air dry?', high: "They're dry almost immediately after washing", medium: "Not long, around 1,5 - 3 hours", low: "It takes ages" }
+
+<% if flash[:success] == true %>
+  <script>
+    $(document).ready(function() {
+      console.log('we are in the flash')
+      $('#resultModal').modal('show')
+    });
+  </script>
+<% end %>
+
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resultModalLabel">Congratulations!</h5>
+        <%= link_to quizzes_path, type: 'button' do %>
+          <h4><i class='bi bi-x'></i></h4>
+        <% end %>
+      </div>
+      <div class="modal-body">
+        Your result is <%= @answer %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('input[type="radio"]').prop("checked", false);
+});
+</script>
