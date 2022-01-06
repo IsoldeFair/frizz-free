@@ -48,8 +48,37 @@
   </div>
   </br>
   <div class='container'>
+    <h4 class='font-weight-bolder'>4. Is your hair easy to style?</h4>
+    <div class='container'>
+      <%= form.radio_button :four, 'high' %>
+      <%= form.label :four_high, "Yes, it's really easy to style", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :four, 'low' %>
+      <%= form.label :four_low, "No, even if I style my hair, it always comes back to its previous state really quickly", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :four, 'medium' %>
+      <%= form.label :four_medium, "It depends on the styling products", class: 'form-check-label' %>
+    </div>
+  </div>
+  </br>
+  <div class='container'>
+    <h4 class='font-weight-bolder'>5. Do you happen to have problems with getting enough volume for your hair?</h4>
+    <div class='container'>
+      <%= form.radio_button :five, 'high' %>
+      <%= form.label :five_high, "No, I sometimes have too much volume", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :five, 'medium' %>
+      <%= form.label :five_medium, "It depends on the products I use for washing", class: 'form-check-label' %>
+      </br>
+      <%= form.radio_button :five, 'low' %>
+      <%= form.label :five_low, "Yes! I almost have to fight for it", class: 'form-check-label' %>
+    </div>
+  </div>
+  </br>
+  <div class='container'>
     <%= form.submit 'Find out', class: 'btn btn-outline-danger', id: 'submit' %>
   </div>
+  </br></br>
 <% end %>
 
 <% if flash[:success] == true %>
@@ -71,7 +100,9 @@
         <% end %>
       </div>
       <div class="modal-body">
-        Your result is <%= @answer %>
+        </br>
+        <%= @answer %>
+        </br></br>
       </div>
     </div>
   </div>
